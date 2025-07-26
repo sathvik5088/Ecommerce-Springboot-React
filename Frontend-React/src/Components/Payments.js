@@ -46,14 +46,25 @@ const Payment = () => {
           productName: item.productName,
           quantity: item.quantity,
         });
+
+        await axios.post("http://localhost:8084/api/purchase/item", { 
+          orderId: orderId,
+          amount: item.price,
+          method: method,
+          userEmail: user.email,
+          productName: item.productName,
+          quantity: item.quantity,
+        });
       }
   
       alert("Payment successful!");
       localStorage.removeItem("cart");
       navigate("/orders");
+
     } catch (error) {
       console.error("Payment Error:", error);
       alert("Payment failed");
+
     }
 
   };

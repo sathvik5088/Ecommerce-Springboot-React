@@ -14,7 +14,7 @@ const OrdersPage = () => {
 
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`http://localhost:8083/api/payments/users?email=${user.email}`);
+        const response = await axios.get(`http://localhost:8084/api/purchase?userEmail=${user.email}`);
         setOrders(response.data);
       } catch (error) {
         console.error("Failed to fetch orders", error);
@@ -47,12 +47,12 @@ const OrdersPage = () => {
         </thead>
         <tbody>
           {orders.map((item) => (
-            <tr key={item.id}>
+            <tr key={item.prodid}>
               <td>{item.productName}</td>
               <td>₹{item.amount}</td>
               <td>{item.quantity}</td>
               <td>₹{item.amount * item.quantity}</td>
-              <td>{item.createdAt}</td>
+              <td>{item.purchasedAt}</td>
               <td>{item.orderId}</td>              
             </tr>
           ))}

@@ -64,6 +64,11 @@ const NavBar = () => {
               <Link to="/cart" className="btn btn-outline-light">
                 🛒 Cart
               </Link>
+
+              <Link to="/orders" className="btn btn-outline-light">
+                My Orders
+              </Link>
+              
               <button onClick={toggleTheme} className="btn btn-outline-light">
                 {theme === "dark-theme" ? "☀️ Light" : "🌙 Dark"}
               </button>
